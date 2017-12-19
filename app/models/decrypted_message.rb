@@ -1,0 +1,2 @@
+class DecryptedMessage < ApplicationRecord
+end
