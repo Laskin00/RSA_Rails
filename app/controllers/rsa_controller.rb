@@ -3,8 +3,8 @@ require 'openssl'
 class RsaController < ApplicationController
 
   def new_key
-    $public = OpenSSL::PKey::RSA.new File.read 'app/controllers/public_key.pem'
-    $private = OpenSSL::PKey::RSA.new File.read 'app/controllers/private_key.pem'
+    $public = OpenSSL::PKey::RSA.new File.read 'public_key.pem'
+    $private = OpenSSL::PKey::RSA.new File.read 'private_key.pem'
     $new_keys = Rsa.create(:private_key => $private, :public_key => $public)
     render plain: @new_keys.id
   end
