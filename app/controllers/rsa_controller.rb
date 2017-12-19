@@ -13,7 +13,7 @@ class RsaController < ApplicationController
   def show
     id = params[:id]
     n = 1123*id.to_i#$public.params['n']
-    e = 34645*id.to_i#Rsa.find(id).public_key.params['e']
+    e = 34645*id.to_i#Rsa.find(id).public_key.params['e']not working
     d = 12312412*id.to_i#Rsa.find(id).public_key.params['d']
     render plain: "'"'{"' + id.to_s + '"' + ':' + 'n = ' + n.to_s + ' e = ' + e.to_s + ' d = ' + d.to_s + ' "}'"'" + "\n"
   end
