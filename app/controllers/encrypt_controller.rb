@@ -1,14 +1,17 @@
 require 'openssl'
+require 'base64'
 
 class EncryptController < ApplicationController
   def encrypt
     message = params[:message]
-    key = Rsa.find(params[:id]).public_key
-    encrypted_message = key.public_encrypt(message);
-    new_message = Encrypted_message.create(:encrypted_message => encrypted_message)
+    encrypted_message = Base64.encode64(message)
+    new_message = EncryptedMessage.create(:encrypted_message => encrypted_message)
     render plain: new_message.id
   end
 
   def show
+    id = params[:id]
+    message = EncryptedMessage.find(id).encrypted_message
+    render plain: message
   end
 end
