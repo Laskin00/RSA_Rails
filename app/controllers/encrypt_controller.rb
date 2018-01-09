@@ -4,7 +4,7 @@ require 'base64'
 class EncryptController < ApplicationController
   def encrypt
 
-    if params[:id] > Stark.last.id
+    if params[:id].to_i > Stark.last.id
       render plain: "There is no such key"
     end
     message = params[:message]

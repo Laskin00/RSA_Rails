@@ -4,7 +4,7 @@ class DecryptController < ApplicationController
   def decrypt
     id = params[:id]
 
-    if id > Stark.last.id
+    if id.to_i > Stark.last.id
       render plain: "There is no such key to decrypt with"
     end
 
