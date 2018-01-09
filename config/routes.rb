@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  post 'rsas' => 'rsa#key_with_parrams_given'
+  post 'rsas' => 'rsa#new_key'
   post 'rsas' => 'rsa#new_key'
   post 'rsas/:id/encrypt_messages' => 'encrypt#encrypt'
   post 'rsas/:id/decrypt_messages' => 'decrypt#decrypt'
