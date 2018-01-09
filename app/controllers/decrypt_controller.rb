@@ -7,9 +7,8 @@ class DecryptController < ApplicationController
     if id.to_i > Stark.last.id
       render plain: "There is no such key to decrypt with"
     end
-
-    message = EncryptedMessage.find(id).encrypted_message
-    key_id = EncryptedMessage.find(id).key_id
+    message = params[:message]
+    key_id = params[:id]
     key = OpenSSL::PKey::RSA.new 2048
     key.n = Stark.find(key_id).n.to_i
     key.e = Stark.find(key_id).e.to_i
@@ -17,11 +16,5 @@ class DecryptController < ApplicationController
     message = Base64.decode64(message)
     decrypted_message = key.public_decrypt(message)
     new_message = DecryptedMessage.create(:decrypted_message => decrypted_message)
-  end
-
-  def show
-    id = params[:id]
-    message = DecryptedMessage.find(id).decrypted_message
-    render plain: message
   end
 end

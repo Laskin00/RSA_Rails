@@ -12,14 +12,8 @@ class RsaController < ApplicationController
       n = params[:n]
       e = params[:e]
       d = params[:d]
-      key = OpenSSL::PKey::RSA.new 2048
-      key.n = n.to_i
-      key.e = e.to_i
-      key.d = d.to_i
-      new_keys = Stark.create(:n => key.n, :e => key.e, :d => key.d)
+      new_keys = Stark.create(:n => n, :e => e, :d => d)
       render plain: new_keys.id
-    else
-      render plain: "There are not default N, E and D"
     end
   end
 
