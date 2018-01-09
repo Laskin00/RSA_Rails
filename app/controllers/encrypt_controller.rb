@@ -20,8 +20,8 @@ class EncryptController < ApplicationController
   end
 
   def show
-    id = params[:id]
+    id = params[:id2]
     message = EncryptedMessage.find(id).encrypted_message
-    render plain: message
+    render plain: '{"message" : "' + message + '"}'
   end
 end

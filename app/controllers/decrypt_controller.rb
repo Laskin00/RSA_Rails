@@ -11,9 +11,9 @@ class DecryptController < ApplicationController
     message = EncryptedMessage.find(id).encrypted_message
     key_id = EncryptedMessage.find(id).key_id
     key = OpenSSL::PKey::RSA.new 2048
-    key.n = Stark.find(key_id).n.to_int
-    key.e = Stark.find(key_id).e.to_int
-    key.d = Stark.find(key_id).d.to_int
+    key.n = Stark.find(key_id).n.to_i
+    key.e = Stark.find(key_id).e.to_i
+    key.d = Stark.find(key_id).d.to_i
     message = Base64.decode64(message)
     decrypted_message = key.public_decrypt(message)
     new_message = DecryptedMessage.create(:decrypted_message => decrypted_message)
