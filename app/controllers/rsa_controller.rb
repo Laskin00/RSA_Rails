@@ -3,7 +3,7 @@ require 'base64'
 
 class RsaController < ApplicationController
   def new_key
-    if params[:n] == nil
+    if params[:n] == nil || params[:e] == nil || params[:d] == nil
       key = OpenSSL::PKey::RSA.new 2048
       new_keys = Stark.create(:n => key.n, :e => key.e, :d => key.d)
       render plain: new_keys.id
