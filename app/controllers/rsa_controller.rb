@@ -8,7 +8,7 @@ class RsaController < ApplicationController
       new_keys = Stark.create(:n => key.n, :e => key.e, :d => key.d)
       render plain: new_keys.id
     end
-    if params[:n] != nil
+    if params[:n] != nil || params[:e] != nil || params[:d] != nil
       n = params[:n]
       e = params[:e]
       d = params[:d]
@@ -18,6 +18,8 @@ class RsaController < ApplicationController
       key.d = d.to_i
       new_keys = Stark.create(:n => key.n, :e => key.e, :d => key.d)
       render plain: new_keys.id
+    else
+      render plain: "There are not default N, E and D"
     end
   end
 
