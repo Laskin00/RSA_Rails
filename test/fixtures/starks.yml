@@ -1,9 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  public_key: MyString
-  private_key: MyString
+  'n': MyString
+  e: MyString
+  d: MyString
 
 two:
-  public_key: MyString
-  private_key: MyString
+  'n': MyString
+  e: MyString
+  d: MyString

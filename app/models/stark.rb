@@ -1,0 +1,2 @@
+class Stark < ApplicationRecord
+end

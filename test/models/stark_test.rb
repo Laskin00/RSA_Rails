@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class RsaTest < ActiveSupport::TestCase
+class StarkTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

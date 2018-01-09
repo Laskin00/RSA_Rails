@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171219175541) do
+ActiveRecord::Schema.define(version: 20180108195011) do
 
   create_table "decrypted_messages", force: :cascade do |t|
     t.string "decrypted_message"
@@ -20,13 +20,15 @@ ActiveRecord::Schema.define(version: 20171219175541) do
 
   create_table "encrypted_messages", force: :cascade do |t|
     t.string "encrypted_message"
+    t.integer "key_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "rsas", force: :cascade do |t|
-    t.string "public_key"
-    t.string "private_key"
+  create_table "starks", force: :cascade do |t|
+    t.string "n"
+    t.string "e"
+    t.string "d"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

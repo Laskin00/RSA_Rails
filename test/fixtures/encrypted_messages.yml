@@ -2,6 +2,8 @@
 
 one:
   encrypted_message: MyString
+  key_id: 1
 
 two:
   encrypted_message: MyString
+  key_id: 1
