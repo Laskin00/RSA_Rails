@@ -3,11 +3,11 @@ require 'base64'
 
 class EncryptController < ApplicationController
   def encrypt
-    
+
     if params[:id] > Stark.last.id
       render plain: "There is no such key"
     end
-
+    message = params[:message]
     key_to_use = Stark.find(params[:id])
     key = OpenSSL::PKey::RSA.new 2048
     key.n = key_to_use.n.to_i
