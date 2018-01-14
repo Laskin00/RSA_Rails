@@ -11,7 +11,7 @@ gem 'rails', '~> 5.1.4'
 gem 'rails-controller-testing'
 # Use sqlite3 as the database for Active Record
 gem 'rspec-rails'
-gem 'pg'
+gem 'pg', '~> 0.18'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
@@ -53,7 +53,6 @@ group :development do
 end
 
 group :production do
-  gem 'pg'
   gem 'rails_12factor'
 end
 
