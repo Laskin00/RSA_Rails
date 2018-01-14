@@ -3,8 +3,7 @@ require 'base64'
 
 class EncryptController < ApplicationController
   def encrypt
-
-    if params[:id].to_i > Stark.last.id
+    if Stark.last.id < params[:id].to_i
       render plain: "There is no such key"
     end
     message = params[:message]
@@ -22,6 +21,6 @@ class EncryptController < ApplicationController
   def show
     id = params[:id2]
     message = EncryptedMessage.find(id).encrypted_message
-    render plain: '{"message" : "' + message + '"}'
+    render json: {message:message}
   end
 end

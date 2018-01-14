@@ -19,6 +19,6 @@ class RsaController < ApplicationController
 
     def show
       key = Stark.find(params[:id])
-      render plain: "'"'{"n":' + '"' + key.n.to_s + '", ' + '"e":' + '"' + key.e.to_s + '", ' + '"d":' + '"' + key.d.to_s + '"}'"'"
+      render json: {n:key.n.to_i,e:key.e.to_i,d:key.d.to_i}
     end
 end
