@@ -9,6 +9,7 @@ end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
 gem 'rails-controller-testing'
+gem 'rails_12factor', group: :production
 # Use sqlite3 as the database for Active Record
 gem 'rspec-rails'
 gem 'pg'
